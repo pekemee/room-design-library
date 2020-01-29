@@ -55,6 +55,7 @@ textarea {
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
+  font-weight: 900;
   line-height: 1;
 }
 
@@ -81,11 +82,13 @@ p {
 
 
 /* header */
-
+header {
+  font-weight: 900;
+}
 #logo {
   float: left;
   margin-right: 10px;
-  font-size: 1.7em;
+  font-size: 1.8em;
   color: white;
   text-transform: uppercase;
   letter-spacing: -1px;
@@ -100,6 +103,7 @@ p {
 /* footer */
 
 footer {
+  font-weight: 900;
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid $gray-medium-light;
@@ -316,6 +320,8 @@ span.picture {
 }
 
 .inline-block-post li a {
+  font-weight: 1000;
+
   display: inline-block;
   padding: 1px;
 }
