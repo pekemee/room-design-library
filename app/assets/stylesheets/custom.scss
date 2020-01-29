@@ -11,7 +11,8 @@ $gray-medium-light: #eaeaea;
   box-sizing:         border-box;
 }
 /* universal */
-
+.mt-0
+.pt-0
 body {
   padding-top: 60px;
 }
@@ -30,7 +31,27 @@ textarea {
     margin-bottom: 10px;
   }
 }
+.big-bg{
+  background-size: cover;
+}
+.make-space{
+  font-size: 2em;
+}
+#home{
+  background-image: url("interior.jpg");
+  min-height: 100vh;
+}
+#home .page-title{
+  text-transform: none;
+  position: absolute;
+  top: 35%;
+  left: 43%;
+  font-family: "serif";
+  width: 100px;
+  text-align: center;
+  font-size: 7em;
 
+}
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
@@ -252,12 +273,12 @@ input {
     margin-left: 60px;
     img {
       display: block;
-      padding: 5px 0;
+      padding: 10px 0;
     }
   }
   .timestamp {
     color: $gray-light;
-    display: block;
+    display: inline;
     margin-left: 60px;
   }
   .gravatar {
@@ -279,4 +300,22 @@ span.picture {
   input {
     border: 0;
   }
+}
+.inline-block-post {
+  text-align: center;
+}
+
+.inline-block-post ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.inline-block-post li {
+  display: inline-block;
+}
+
+.inline-block-post li a {
+  display: inline-block;
+  padding: 1px;
 }

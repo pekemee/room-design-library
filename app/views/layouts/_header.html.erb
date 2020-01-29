@@ -1,27 +1,55 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
-    <%= link_to "sample app", root_path, id: "logo" %>
+    <%= link_to "RDL", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Help", help_path %></li>
+        <li><%= link_to "Concept", concept_path %></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            部屋のタイプ <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "一人暮らしor個室", "#" %></li>
+            <li><%= link_to "リビング", "#" %></li>
+            <li><%= link_to "ベッドルーム", "#" %></li>
+            <li><%= link_to "キッチン", "#" %></li>
+            <li><%= link_to "玄関", "#" %></li>
+            <li><%= link_to "ベランダ", "#" %></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            テーマ別 <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "海", "#" %></li>
+            <li><%= link_to "アンティーク", "#" %></li>
+            <li><%= link_to "モダン", "#" %></li>
+            <li><%= link_to "シンプル", "#" %></li>
+            <li><%= link_to "北欧", "#" %></li>
+            <li><%= link_to "和", "#" %></li>
+            <li><%= link_to "ガーリー", "#" %></li>
+          </ul>
+        </li>
         <% if logged_in? %>
-        <li><%= link_to "Users", users_path %></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              Account <b class="caret"></b>
+            会員機能 <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <li><%= link_to "Profile", current_user %></li>
-              <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+              <li><%= link_to "タイムライン", timeline_path %></li>
+              <li><%= link_to "自分の投稿", current_user %></li>
+              <li><%= link_to "設定", edit_user_path(current_user) %></li>
               <li class="divider"></li>
               <li>
-                <%= link_to "Log out", logout_path, method: :delete %>
+                <%= link_to "ログアウト", logout_path, method: :delete %>
               </li>
             </ul>
           </li>
         <% else %>
-          <li><%= link_to "Log in", login_path %></li>
+          <li><%= link_to "ログイン", login_path %></li>
+          <li><%= link_to "アカウント作成", signup_path %></li>
         <% end %>
       </ul>
     </nav>
