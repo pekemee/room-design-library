@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191225084440) do
+ActiveRecord::Schema.define(version: 20200129160659) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,20 @@ ActiveRecord::Schema.define(version: 20191225084440) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "picture"
+    t.boolean "private", default: false
+    t.boolean "living", default: false
+    t.boolean "bed", default: false
+    t.boolean "kitchen", default: false
+    t.boolean "bath", default: false
+    t.boolean "entrance", default: false
+    t.boolean "balcony", default: false
+    t.boolean "sea", default: false
+    t.boolean "antique", default: false
+    t.boolean "modern", default: false
+    t.boolean "simple", default: false
+    t.boolean "north", default: false
+    t.boolean "japan", default: false
+    t.boolean "girly", default: false
     t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_microposts_on_user_id"
   end

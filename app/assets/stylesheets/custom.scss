@@ -90,10 +90,11 @@ header {
   margin-right: 10px;
   font-size: 1.8em;
   color: white;
-  text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
+  font-family: serif;
+  font-style: italic;
   &:hover {
     color: white;
     text-decoration: none;
@@ -236,11 +237,15 @@ input {
   }
 }
 .checkbox {
+  padding-right: 60px;
+  text-align: left;
   margin-top: -10px;
   margin-bottom: 10px;
   span {
-    margin-left: 20px;
-    font-weight: normal;
+    text-align: left;
+    padding-top: 4px;
+    padding-left: 20px;
+    font-weight: bold;
   }
 }
 

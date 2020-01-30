@@ -1,6 +1,6 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
-    <%= link_to "RDL", root_path, id: "logo" %>
+    <%= link_to "RoomDesignLibrary", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home", root_path %></li>
@@ -10,13 +10,13 @@
             部屋のタイプ <b class="caret"></b>
           </a>
           <ul class="dropdown-menu">
-            <li><%= link_to "一人暮らしor個室", "#" %></li>
-            <li><%= link_to "リビング", "#" %></li>
-            <li><%= link_to "ベッドルーム", "#" %></li>
-            <li><%= link_to "キッチン", "#" %></li>
-            <li><%= link_to "バスルーム、トイレ", "#" %></li>
-            <li><%= link_to "玄関", "#" %></li>
-            <li><%= link_to "ベランダ、デッキ", "#" %></li>
+            <li><%= link_to "一人暮らしor個室", show_by_type_path(type:"private") %></li>
+            <li><%= link_to "リビング", show_by_type_path(type:"living") %></li>
+            <li><%= link_to "ベッドルーム", show_by_type_path(type:"bed") %></li>
+            <li><%= link_to "キッチン", show_by_type_path(type:"kitchen") %></li>
+            <li><%= link_to "バスルーム、トイレ", show_by_type_path(type:"bath") %></li>
+            <li><%= link_to "玄関", show_by_type_path(type:"entrance") %></li>
+            <li><%= link_to "ベランダ、デッキ", show_by_type_path(type:"balcony") %></li>
           </ul>
         </li>
         <li class="dropdown">
@@ -24,13 +24,13 @@
             テーマ別 <b class="caret"></b>
           </a>
           <ul class="dropdown-menu">
-            <li><%= link_to "海", "#" %></li>
-            <li><%= link_to "アンティーク", "#" %></li>
-            <li><%= link_to "モダン", "#" %></li>
-            <li><%= link_to "シンプル", "#" %></li>
-            <li><%= link_to "北欧", "#" %></li>
-            <li><%= link_to "和", "#" %></li>
-            <li><%= link_to "ガーリー", "#" %></li>
+            <li><%= link_to "海", show_by_type_path(type:"sea")%></li>
+            <li><%= link_to "アンティーク", show_by_type_path(type:"antique") %></li>
+            <li><%= link_to "モダン", show_by_type_path(type:"modern") %></li>
+            <li><%= link_to "シンプル", show_by_type_path(type:"simple") %></li>
+            <li><%= link_to "北欧", show_by_type_path(type:"north") %></li>
+            <li><%= link_to "和", show_by_type_path(type:"japan") %></li>
+            <li><%= link_to "ガーリー", show_by_type_path(type:"girly") %></li>
           </ul>
         </li>
         <% if logged_in? %>
@@ -40,8 +40,8 @@
             </a>
             <ul class="dropdown-menu">
               <li><%= link_to "タイムライン", timeline_path %></li>
-              <li><%= link_to "自分の投稿", current_user %></li>
-              <li><%= link_to "設定", edit_user_path(current_user) %></li>
+              <li><%= link_to "マイページ", current_user %></li>
+              <li><%= link_to "ユーザー設定", edit_user_path(current_user) %></li>
               <li class="divider"></li>
               <li>
                 <%= link_to "ログアウト", logout_path, method: :delete %>

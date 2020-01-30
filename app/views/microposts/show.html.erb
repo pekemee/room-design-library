@@ -1,0 +1,28 @@
+<% provide(:title, "Comment") %>
+  <div class="row" style="margin-top: 50px;">
+    <aside class="col-md-4">
+      <li id="micropost-<%= @micropost.id %>">
+        <span class="user"><%= link_to "by #{@micropost.user.name}", @micropost.user %></span>
+        <span class="content">
+          <%= @micropost.content %>
+          <p>
+          <%= image_tag @micropost.picture.url, :size =>'480x320' if @micropost.picture? %>
+        </span>
+        <p>
+        <span class="timestamp">
+          Posted <%= time_ago_in_words(@micropost.created_at) %> ago.
+          <% if current_user?(@micropost.user) | admin_user?(current_user) %>
+            <%= link_to "delete", @micropost, method: :delete,
+                                             data: { confirm: "You sure?" } %>
+          <% end %>
+        </span>
+      </li>
+
+    </aside>
+    <div class="col-md-8">
+      <h3>Comment</h3>
+      <nav class="inline-block-post">
+
+      </nav>
+    </div>
+  </div>

@@ -1,13 +1,17 @@
 <%= form_for(@micropost) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :content, placeholder: "20字以内" %>
+      <%= f.label :title %>
+      <%= f.text_field :content, placeholder: "20字以内" %>
+      <%= f.submit "Post", class: "btn btn-primary" %>
+    <span class="picture">
+      <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+    </span>
+    <p>複数選択可</p>
+      <%= render 'shared/check_part.html.erb', f: f %>
+      <br>
+      <%= render 'shared/check_room_type.html.erb', f: f %>
   </div>
-  <%= f.submit "Post", class: "btn btn-primary" %>
-  <span class="picture">
-    <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
-  </span>
 <% end %>
 
 <script type="text/javascript">
