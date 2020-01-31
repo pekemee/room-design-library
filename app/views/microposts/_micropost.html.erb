@@ -1,7 +1,8 @@
 <li id="micropost-<%= micropost.id %>">
-  <span class="user"><%= link_to "by #{micropost.user.name}", micropost.user %></span>
-  <span class="content">
+  <span class="user"><%= link_to "by #{micropost.user.name}", micropost.user %>
     <%= micropost.content %>
+  </span>
+  <span class="content">
     <p>
     <%= link_to image_tag(micropost.picture.url, :size =>'480x320'), micropost_path(micropost)  %>
   </span>
@@ -13,4 +14,5 @@
                                        data: { confirm: "You sure?" } %>
     <% end %>
   </span>
+  <%= render "likes/like_form", micropost: micropost %>
 </li>
