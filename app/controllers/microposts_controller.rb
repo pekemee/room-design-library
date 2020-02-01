@@ -17,6 +17,7 @@ class MicropostsController < ApplicationController
 
   def show
     @micropost=Micropost.find_by(id: params[:id])
+    @comments = @micropost.comments
   end
 
   def show_by_type
