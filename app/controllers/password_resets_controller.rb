@@ -4,9 +4,11 @@ class PasswordResetsController < ApplicationController
   before_action :check_expiration, only: [:edit, :update]    # (1) への対応
 
   def new
+    redirect_to root_url
   end
 
   def create
+    redirect_to root_url
     @user = User.find_by(email: params[:password_reset][:email].downcase)
     if @user
       @user.create_reset_digest
@@ -20,9 +22,11 @@ class PasswordResetsController < ApplicationController
   end
 
   def edit
+    redirect_to root_url
   end
-  
+
   def update
+    redirect_to root_url
      if params[:user][:password].empty?                  # (3) への対応
        @user.errors.add(:password, :blank)
        render 'edit'

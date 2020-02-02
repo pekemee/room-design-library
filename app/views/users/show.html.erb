@@ -19,6 +19,7 @@
   <div class="col-md-8">
     <h3>My photos (<%= @user.microposts.count %>)</h3>
     <% if @user.microposts.any? %>
+    <%= will_paginate @microposts %>
       <ol class="microposts">
         <nav class="inline-block-post">
           <%= render @microposts %>
