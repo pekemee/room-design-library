@@ -3,7 +3,7 @@
   <aside class="col-md-4">
     <section class="user_info">
       <h1>
-        <%= gravatar_for @user %>
+        <%= link_to image_tag(@user.image.url, :size =>'100x100'), @user  %>
         <%= @user.name %>
       </h1>
     </section>
@@ -17,8 +17,8 @@
   </aside>
 
   <div class="col-md-8">
-    <% if @user.microposts.any? %>
-      <h3>Microposts (<%= @user.microposts.count %>)</h3>
+    <h3>Favorites (<%= @user.like_microposts.count %>)</h3>
+    <% if @user.like_microposts.any? %>
       <ol class="microposts">
         <nav class="inline-block-post">
           <%= render @microposts %>
