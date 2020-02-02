@@ -26,10 +26,12 @@ class UsersController < ApplicationController
   end
 
   def new
+    redirect_to root_url
     @user = User.new
   end
 
   def create
+    redirect_to root_url
     @user = User.new(user_params)
     if @user.save
       @user.send_activation_email
@@ -41,9 +43,11 @@ class UsersController < ApplicationController
   end
 
   def edit
+    redirect_to root_url
   end
 
   def update
+    redirect_to root_url
     if @user.update_attributes(user_params)
       flash[:success] = "Profile updated"
       redirect_to @user
