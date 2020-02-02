@@ -33,6 +33,7 @@ textarea {
 }
 .big-bg{
   background-size: cover;
+  background-repeat: no-repeat;
 }
 .make-space{
   font-size: 2em;
@@ -40,6 +41,8 @@ textarea {
 #home{
   background-image: image-url("interior.jpg");
   min-height: 100vh;
+}
+#home .img {
 }
 #home .page-title{
   text-transform: none;
