@@ -8,9 +8,11 @@
   <span class='timestamp'>
     <%= link_to "#{comment.user.name if comment.user}", comment.user %>
     <%= comment.created_at %>
-    <% if current_user?(comment.user) | admin_user?(current_user) %>
-      <%= link_to "delete", comment_path(id: comment.id), method: :delete,
-                                       data: { confirm: "You sure?" } %>
+    <% if logged_in? %>
+      <% if current_user?(comment.user) | admin_user?(current_user) %>
+        <%= link_to "delete", comment_path(id: comment.id), method: :delete,
+                                         data: { confirm: "You sure?" } %>
+      <% end %>
     <% end %>
   </span>
 </li>

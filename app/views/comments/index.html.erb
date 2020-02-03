@@ -11,9 +11,11 @@
         <p>
         <span class="timestamp">
           Posted <%= time_ago_in_words(@micropost.created_at) %> ago.
-          <% if current_user?(@micropost.user) | admin_user?(current_user) %>
-            <%= link_to "delete", @micropost, method: :delete,
-                                             data: { confirm: "You sure?" } %>
+          <% if logged_in? %>
+            <% if current_user?(@micropost.user) | admin_user?(current_user) %>
+              <%= link_to "delete", @micropost, method: :delete,
+                                               data: { confirm: "You sure?" } %>
+            <% end %>
           <% end %>
         </span>
       </li>
