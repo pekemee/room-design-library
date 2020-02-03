@@ -20,6 +20,12 @@ class UsersController < ApplicationController
     @microposts = @user.like_microposts.paginate(page: params[:page])
   end
 
+  def comment_post
+    @user = User.find(params[:id])
+    @micropost  = current_user.microposts.build
+    @microposts = @user.commented_posts
+  end
+
   def timeline
     @micropost  = current_user.microposts.build
     @feed_items = current_user.feed.paginate(page: params[:page])

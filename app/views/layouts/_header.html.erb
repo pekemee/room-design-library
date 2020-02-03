@@ -42,6 +42,7 @@
               <li><%= link_to "タイムライン", timeline_path %></li>
               <li><%= link_to "自分の投稿", current_user %></li>
               <li><%= link_to "お気に入り", favorite_path(id: current_user.id) %></li>
+              <li><%= link_to "コメントした投稿", comment_post_path(id: current_user.id) %></li>
               <li><%= link_to "ユーザー設定", edit_user_path(current_user) %></li>
               <li class="divider"></li>
               <li>
