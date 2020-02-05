@@ -2,6 +2,6 @@
 <p><%= @user.name %>さん、</p>
 
 <p>あなたの投稿にコメントがありました。:</p>
-<%= @comment.content %>
+<p><%= @comment.content %></p>
 
-<%= micropost_comments_url(@micropost) %>
+<%= link_to "確認する",micropost_comments_url(@micropost) %>
