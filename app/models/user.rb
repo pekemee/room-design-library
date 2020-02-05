@@ -58,6 +58,10 @@ class User < ApplicationRecord
     update_attribute(:activated_at, Time.zone.now)
   end
 
+  def send_comment_notice(comment)
+    UserMailer.comment_notice(self,comment).deliver_now
+  end
+
 
   def send_activation_email
     UserMailer.account_activation(self).deliver_now

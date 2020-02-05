@@ -12,6 +12,7 @@ class CommentsController < ApplicationController
     @comment.user_id=current_user.id
     if @comment.save
       @comments=@micropost.comments
+      @micropost.user.send_comment_notice(@comment)
       flash[:success]="Posted your comment"
       redirect_back(fallback_location: root_path)
     else
