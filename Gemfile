@@ -18,7 +18,7 @@ gem 'mini_magick',             '4.7.0'
 gem 'counter_culture', '~> 1.8'
 
 # Use postgresql as the database for Active Record
-gem 'pg', '>= 0.18', '< 2.0'
+gem 'mysql2'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -60,7 +60,6 @@ group :development do
 end
 
 group :production do
-  gem 'pg', '>= 0.18', '< 2.0'
   gem 'fog-aws'
 end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
