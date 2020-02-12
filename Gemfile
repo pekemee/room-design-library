@@ -18,7 +18,7 @@ gem 'mini_magick',             '4.7.0'
 gem 'counter_culture', '~> 1.8'
 
 # Use postgresql as the database for Active Record
-gem 'mysql2'
+gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
