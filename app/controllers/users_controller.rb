@@ -32,12 +32,12 @@ class UsersController < ApplicationController
   end
 
   def new
-    #redirect_to root_url
+    redirect_to root_url
     @user = User.new
   end
 
   def create
-    #redirect_to root_url
+    redirect_to root_url
     @user = User.new(user_params)
     if @user.save
       @user.send_activation_email
