@@ -20,10 +20,9 @@
 <div class="col-md-8">
   <h3>Commented posts (<%= @user.commented_posts.count %>)</h3>
   <% if @user.commented_posts.any? %>
-    <ol class="microposts">
-      <nav class="inline-block-post">
-        <%= render @microposts %>
-      </nav>
-    </ol>
+  <ul class="inline-block-post jscroll">
+    <%= render @microposts %>
+    <%= paginate @microposts %>
+  </ul>
   <% end %>
 </div>

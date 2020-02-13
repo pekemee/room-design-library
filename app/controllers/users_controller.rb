@@ -11,24 +11,29 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @micropost  = current_user.microposts.build
-    @microposts = @user.microposts.paginate(page: params[:page])
+    @microposts = @user.microposts
+    @microposts=Kaminari.paginate_array(@microposts).page(params[:page]).per(8)
   end
 
   def favorite
     @user = User.find(params[:id])
     @micropost  = current_user.microposts.build
-    @microposts = @user.like_microposts.paginate(page: params[:page])
+    @microposts = @user.like_microposts
+    @microposts=Kaminari.paginate_array(@microposts).page(params[:page]).per(8)
   end
 
   def comment_post
     @user = User.find(params[:id])
     @micropost  = current_user.microposts.build
     @microposts = @user.commented_posts
+    @microposts=Kaminari.paginate_array(@microposts).page(params[:page]).per(8)
   end
 
   def timeline
     @micropost  = current_user.microposts.build
-    @feed_items = current_user.feed.paginate(page: params[:page])
+    @feed_items = current_user.feed
+    @count=@feed_items.count
+    @feed_items=Kaminari.paginate_array(@feed_items).page(params[:page]).per(8)
   end
 
   def new

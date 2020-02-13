@@ -14,4 +14,5 @@
 //= require jquery3
 //= require bootstrap
 //= require turbolinks
+//= require jquery.jscroll.min.js
 //= require_tree .

@@ -1,7 +1,7 @@
   <div class="row">
       <h3>Descend by posted at</h3>
-      <nav class="inline-block-post">
+      <ul class="inline-block-post jscroll">
         <%= render @microposts %>
-      </nav>
-    <%= will_paginate @microposts %>
+        <%= paginate @microposts %>
+      </ul>
   </div>

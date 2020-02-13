@@ -1,9 +1,7 @@
 class StaticPagesController < ApplicationController
   def home
-    @microposts = Micropost.paginate(page: params[:page])
+    @microposts = Micropost.page(params[:page]).per(12)
   end
-
-
 
   def concept
   end

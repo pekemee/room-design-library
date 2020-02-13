@@ -24,7 +24,7 @@ class MicropostsController < ApplicationController
 
   def show_by_type
     get_posts_by_type(params[:type])
-    @microposts=@microposts.paginate(page: params[:page])
+    @microposts=Kaminari.paginate_array(@microposts).page(params[:page]).per(12)
   end
 
   def destroy
