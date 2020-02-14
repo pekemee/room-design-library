@@ -13,6 +13,6 @@
 //= require rails-ujs
 //= require jquery3
 //= require bootstrap
-//= require turbolinks
+//= require jquery.turbolinks
 //= require jquery.jscroll.min.js
 //= require_tree .
