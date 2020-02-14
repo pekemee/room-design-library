@@ -376,19 +376,25 @@ span.picture {
 
 .inline-block-post ul {
   list-style: none;
-  margin: 0;
+  margin: 10px 0;
   padding: 0;
 }
 
 .inline-block-post li {
   display: inline-block;
+  margin:10px 0;
 }
 
 .inline-block-post li a {
   font-weight: 1000;
-
   display: inline-block;
-  padding: 1px;
+  padding: 0px;
+}
+.inline-block-post li .timestamp{
+  margin:0 0;
+}
+.inline-block-post li p{
+  margin:0 0;
 }
 nav.pagination {
   display: none;

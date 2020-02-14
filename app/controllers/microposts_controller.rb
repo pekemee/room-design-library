@@ -51,6 +51,7 @@ class MicropostsController < ApplicationController
     end
 
     def get_posts_by_type(type)
+      @type=type.to_str
       @microposts=Micropost.where("#{type}=true")
     end
 
