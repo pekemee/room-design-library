@@ -16,5 +16,6 @@ $(function(){
       arrows:false,
       fade:true,
       speed:2900,
+      pauseOnHover:false,  
   });
 });
