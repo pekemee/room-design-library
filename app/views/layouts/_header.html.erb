@@ -44,6 +44,9 @@
               <li><%= link_to "コメントした投稿", comment_post_path(id: current_user.id) %></li>
               <li><%= link_to "ユーザー設定", edit_user_path(current_user) %></li>
               <li class="divider"></li>
+              <% if current_user.admin? %>
+                <li><%= link_to "ユーザー一覧", users_path %></li>
+              <% end %>
               <li>
                 <%= link_to "ログアウト", logout_path, method: :delete %>
               </li>
