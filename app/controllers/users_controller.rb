@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   def comment_post
     @user = User.find(params[:id])
     @micropost  = current_user.microposts.build
-    @microposts = @user.commented_posts.recent
+    @microposts = @user.commented_posts.recent.uniq
     @microposts=Kaminari.paginate_array(@microposts).page(params[:page]).per(8)
   end
 
