@@ -1,34 +1,34 @@
 <% provide(:title, "Edit user") %>
-<h1>Change your profile</h1>
+<div class="signin_page">
+  <div class="bg-mask">
+  <h1>Change your profile</h1>
+      <div class="col-md-6 col-md-offset-3">
+        <%= form_for(@user) do |f| %>
+          <%= render 'shared/error_messages', object: f.object %>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@user) do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
+          <%= f.label :name %>
+          <%= f.text_field :name, class: 'form-control' %>
 
-      <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control' %>
+          <%= f.label :email %>
+          <%= f.email_field :email, class: 'form-control' %>
 
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
+          <%= f.label :password %>
+          <%= f.password_field :password, class: 'form-control' %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
+          <%= f.label :password_confirmation, "Confirmation" %>
+          <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
-
-      <%= f.submit "Save changes", class: "btn btn-info" %>
+          <%= f.submit "Save changes", class: "btn btn-info" %>
 
 
-    <span class="picture">
-      <%= f.label :change_photo %>
-      <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png' %>
-    </span>
-    <% end %>
+        <span class="picture">
+          <%= f.label :change_photo %>
+          <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png' %>
+        </span>
+        <% end %>
+      </div>
   </div>
 </div>
-
 <script type="text/javascript">
   $('#micropost_picture').bind('change', function() {
     var size_in_megabytes = this.files[0].size/1024/1024;

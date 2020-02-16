@@ -1,5 +1,23 @@
   <div class="row">
-      <h3><%= @type %></h3>
+    <div class="col-md-12">
+      <div class="col-md-5">
+        <h3 class="sort-type"><%=@type%><br>Sort by <%=@sort%></h3>
+      </div>
+      <div class="col-md-6">
+      </div>
+      <div class="col-md-1">
+        <p><br></p>
+        <div class="dropdown-sort">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            並び替え <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu sort-menu">
+            <li><%= link_to "新着順", show_by_type_path(type: @type,sort:"new") %></li>
+            <li><%= link_to "いいね順", show_by_type_path(type: @type,sort:"like") %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
       <ul class="inline-block-post jscroll">
         <%= render @microposts %>
         <%= paginate @microposts %>

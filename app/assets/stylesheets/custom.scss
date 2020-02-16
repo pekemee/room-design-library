@@ -27,7 +27,10 @@ section {
 textarea {
   resize: vertical;
 }
+.row{
+  background: linear-gradient(-90deg,#bfeeff, #ffffff);
 
+}
 .center {
   text-align: center;
   h1 {
@@ -61,6 +64,10 @@ textarea {
   font-style:bold;
   color: black;
 }
+.sort-type{
+  font-style: italic;
+  font-size: 20px;
+}
 .big-bg{
   background-size: contain;
   background-repeat: no-repeat;
@@ -86,6 +93,18 @@ textarea {
   text-align: center;
   font-size: 5em;
 
+}
+.dropdown-sort{
+  font-weight: bold;
+  font-size:15px;
+  text-align: right;
+}
+.dropdown-sort a{
+  text-decoration: none;
+  color: black;
+}
+.sort-menu{
+  width: 130px;
 }
 /* typography */
 
@@ -427,4 +446,16 @@ span.picture {
 }
 nav.pagination {
   display: none;
+}
+.signin_page{
+  background-image:image-url("living-room.jpg");
+  height: 800px;
+}
+.bg-mask {
+  height: 100%;
+  background: rgba(255,255,255,0.5);
+}
+.signin_page h1{
+  font-style: italic;
+  padding-top: 0px;
 }

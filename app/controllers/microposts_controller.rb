@@ -23,8 +23,15 @@ class MicropostsController < ApplicationController
   end
 
   def show_by_type
-    get_posts_by_type(params[:type])
-    @microposts=Kaminari.paginate_array(@microposts).page(params[:page]).per(12)
+    if params[:sort]=="like"
+      get_posts_type_and_likes(params[:type])
+      @microposts=Kaminari.paginate_array(@microposts).page(params[:page]).per(12)
+      @sort="likes"
+    else
+      get_posts_by_type(params[:type])
+      @microposts=Kaminari.paginate_array(@microposts).page(params[:page]).per(12)
+      @sort="newer"
+    end
   end
 
   def destroy
@@ -52,7 +59,18 @@ class MicropostsController < ApplicationController
 
     def get_posts_by_type(type)
       @type=type.to_str
-      @microposts=Micropost.where("#{type}=true")
+      @microposts=Micropost.recent.where("#{type}=true")
+    end
+
+    def get_posts_type_and_likes(type)
+      @type=type.to_str
+      @microposts=[]
+      microposts = Micropost.find(Like.group(:micropost_id).order('count(micropost_id) desc').pluck(:micropost_id))
+      microposts.each do |post|
+        if post.send(@type)==true
+          @microposts << post
+        end
+      end
     end
 
     def get_photo_types
