@@ -26,11 +26,11 @@ class MicropostsController < ApplicationController
     if params[:sort]=="like"
       get_posts_type_and_likes(params[:type])
       @microposts=Kaminari.paginate_array(@microposts).page(params[:page]).per(12)
-      @sort="likes"
+      @sort="いいね順"
     else
       get_posts_by_type(params[:type])
       @microposts=Kaminari.paginate_array(@microposts).page(params[:page]).per(12)
-      @sort="newer"
+      @sort="新しい順"
     end
   end
 
@@ -58,12 +58,12 @@ class MicropostsController < ApplicationController
     end
 
     def get_posts_by_type(type)
-      @type=type.to_str
+      get_at_type(type)
       @microposts=Micropost.recent.where("#{type}=true")
     end
 
     def get_posts_type_and_likes(type)
-      @type=type.to_str
+      get_at_type(type)
       @microposts=[]
       microposts = Micropost.find(Like.group(:micropost_id).order('count(micropost_id) desc').pluck(:micropost_id))
       microposts.each do |post|
@@ -88,5 +88,40 @@ class MicropostsController < ApplicationController
       params[:micropost][:north] == '1' ? @micropost.north=true : @micropost.north=false
       params[:micropost][:japan] == '1' ? @micropost.japan=true : @micropost.japan=false
       params[:micropost][:girly] == '1' ? @micropost.girly=true : @micropost.girly=false
+    end
+
+    def get_at_type(type)
+      @type=type.to_str
+      if @type=="private"
+        @type="一人部屋"
+      elsif @type=="living"
+        @type="リビング"
+      elsif @type=="bed"
+        @type="寝室"
+      elsif @type=="living"
+        @type="キッチン"
+      elsif @type=="bath"
+        @type="浴室"
+      elsif @type=="entrance"
+        @type="玄関"
+      elsif @type=="balcony"
+        @type="バルコニー"
+      elsif @type=="sea"
+        @type="海"
+      elsif @type=="antique"
+        @type="アンティーク"
+      elsif @type=="modern"
+        @type="モダン"
+      elsif @type=="simple"
+        @type="シンプル"
+      elsif @type=="north"
+        @type="北欧風"
+      elsif @type=="japan"
+        @type="和風"
+      elsif @type=="girly"
+        @type="ガーリー"
+      else
+        @type=""
+      end
     end
 end
