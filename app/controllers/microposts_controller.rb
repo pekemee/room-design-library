@@ -98,7 +98,7 @@ class MicropostsController < ApplicationController
         @jptype="リビング"
       elsif @type=="bed"
         @jptype="寝室"
-      elsif @type=="living"
+      elsif @type=="kitchen"
         @jptype="キッチン"
       elsif @type=="bath"
         @jptype="浴室"
